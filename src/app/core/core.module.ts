@@ -8,10 +8,15 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SharedModule } from '../shared/shared.module';
+import { loadSvgResources } from '../utils/svg.util';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   declarations: [
     HeaderComponent,
@@ -25,9 +30,16 @@ import { SharedModule } from '../shared/shared.module';
   ]
 })
 export class CoreModule {
-  constructor(@Optional() @SkipSelf() parent: CoreModule) {
+  constructor(
+    @Optional()
+    @SkipSelf()
+    parent: CoreModule,
+    iconRegistry: MatIconRegistry,
+    sanitizer: DomSanitizer
+  ) {
     if (parent) {
       throw new Error('模块已经存在, 不能再次加载!');
     }
+    loadSvgResources(iconRegistry, sanitizer);
   }
 }
