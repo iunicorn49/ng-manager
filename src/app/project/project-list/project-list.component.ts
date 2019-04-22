@@ -29,7 +29,7 @@ export class ProjectListComponent implements OnInit {
   }
 
   openNewProjectDialog() {
-    const dialogRef = this.dialog.open(NewProjectComponent, {data: '给dialog的数据'});
+    const dialogRef = this.dialog.open(NewProjectComponent, {data: {title: '新增任务'}});
     dialogRef.afterClosed().subscribe(result => console.log('result:', result));
     console.log('dialogRef', dialogRef);
   }
@@ -39,4 +39,9 @@ export class ProjectListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => console.log('InviteComponentClose:', result));
   }
 
+  launchUpdateDialog() {
+    const data = {title: '编辑任务'};
+    const dialogRef = this.dialog.open(NewProjectComponent, {data});
+    dialogRef.afterClosed().subscribe(result => console.log('result:', result));
+  }
 }
