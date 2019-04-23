@@ -35,6 +35,7 @@ const MODULE_LIST = [
   ],
   exports: [
     ...MODULE_LIST,
-  ]
+  ],
+  entryComponents: [ConfirmDialogComponent],
 })
 export class SharedModule { }

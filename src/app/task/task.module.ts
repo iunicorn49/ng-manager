@@ -7,16 +7,19 @@ import { TaskRoutingModule } from './task-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { CopyTaskComponent } from './copy-task/copy-task.component';
+import { NewTaskListComponent } from './new-task-list/new-task-list.component';
 
 @NgModule({
-  declarations: [TaskHomeComponent, TaskListComponent, TaskItemComponent, TaskHeaderComponent, NewTaskComponent, CopyTaskComponent],
+  // tslint:disable-next-line:max-line-length
+  declarations: [TaskHomeComponent, TaskListComponent, TaskItemComponent, TaskHeaderComponent, NewTaskComponent, CopyTaskComponent, NewTaskListComponent],
   imports: [
     SharedModule,
     TaskRoutingModule
   ],
   entryComponents: [
     NewTaskComponent,
-    CopyTaskComponent
+    CopyTaskComponent,
+    NewTaskListComponent
   ]
 })
 export class TaskModule { }

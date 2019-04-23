@@ -12,11 +12,15 @@ import { loadSvgResources } from '../utils/svg.util';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import 'hammerjs';
 
 @NgModule({
   imports: [
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule // 最好放在最后, 动画的库一般来说刚开始是不做任何事情的, 而且, 还很大, 影响体验
   ],
   declarations: [
     HeaderComponent,
